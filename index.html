@@ -73,6 +73,7 @@ h1 {
     background-image: radial-gradient(circle 10px at 22.5px 22.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 22.5px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 0px 22.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 45px 22.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 22.5px 45px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 37.5px 6.25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 37.5px 6.25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 37.5px 37.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 6.25px 37.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 6.25px 6.25px, var(--base-color) 100%, transparent 0);
     background-repeat: no-repeat;
     box-sizing: border-box;
+    -webkit-animation: rotationBack 3s linear infinite;
     animation: rotationBack 3s linear infinite;
 }
 .loader::after {
@@ -87,13 +88,16 @@ h1 {
     background-image: radial-gradient(circle 6.25px at 15px 15px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 15px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 0px 15px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 30px 15px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 15px 30px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 25px 3.75px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 25px 3.75px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 25px 25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 3.75px 25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 3.75px 3.75px, var(--base-color) 100%, transparent 0);
     background-repeat: no-repeat;
     box-sizing: border-box;
+    -webkit-animation: rotationBack 4s linear infinite reverse;
     animation: rotationBack 4s linear infinite reverse;
 }
 @keyframes rotationBack {
 0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
 }
 100% {
+    -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg);
 }
 }  
