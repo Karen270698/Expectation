@@ -26,11 +26,13 @@ body {
     background-image: radial-gradient(circle farthest-corner at center, #c0eaff 0%, #ffffff 100%);
 }
 .header__logo {
+    display: flex;
     background: white;
     box-shadow: #777777 0px -5px 20px 0px;
     width: 100%;
     position: relative;
-    padding: 5px 10px 0;
+    padding: 5px 10px;
+    justify-content: space-between;
 }
 .logo {
     height: 60px;
@@ -55,65 +57,43 @@ h1 {
     font-size: 38px;
 }
 .loader {
-    width: 75px;
-    height: 50px;
-    position: relative;
+    width: 56px;
+    height: 56px;
+    border: 6px solid #aae8ff;
+    border-bottom-color: #4093c2;
+    border-radius: 50%;
     display: inline-block;
-    --base-color: #ffffff; /*use your base color*/
-}
-.loader::before {
-    content: '';  
-    left: 0;
-    top: 0;
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #0096c5;
-    background-image: radial-gradient(circle 10px at 22.5px 22.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 22.5px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 0px 22.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 45px 22.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 22.5px 45px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 37.5px 6.25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 37.5px 6.25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 37.5px 37.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 6.25px 37.5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 5px at 6.25px 6.25px, var(--base-color) 100%, transparent 0);
-    background-repeat: no-repeat;
     box-sizing: border-box;
-    -webkit-animation: rotationBack 3s linear infinite;
-    animation: rotationBack 3s linear infinite;
-}
-.loader::after {
-    content: '';  
-    left: 45px;
-    top: 20px;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #006399;
-    background-image: radial-gradient(circle 6.25px at 15px 15px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 15px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 0px 15px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 30px 15px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 15px 30px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 25px 3.75px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 25px 3.75px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 25px 25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 3.75px 25px, var(--base-color) 100%, transparent 0), radial-gradient(circle 3.125px at 3.75px 3.75px, var(--base-color) 100%, transparent 0);
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-    -webkit-animation: rotationBack 4s linear infinite reverse;
-    animation: rotationBack 4s linear infinite reverse;
-}
-@keyframes rotationBack {
+    animation: rotation 1s linear infinite;
+    }
+
+@keyframes rotation {
 0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
 }
 100% {
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
+    transform: rotate(360deg);
 }
-}  
+} 
 .txt {
     font-size: 20px; 
     text-align: center;
 }
 .info {
     width: 100%;
-    font-size: 20px;
+    font-size: 22px;
 }
-#dog {
+.info p {
+    margin: 0;
+}
+.dog {
     padding: 15px;
     margin: 0;
 }
-#price {
+#subdog, #subprice {
+    font-size: 16px;
+}
+.price {
     padding: 15px;
     margin: 0;
     background: #add9ff61;
@@ -138,6 +118,9 @@ h1 {
     section {
         width: 420px;
     }
+    .logo {
+        height: 42px;
+    }
     .butt {
         width: 60%;
     }
@@ -145,7 +128,7 @@ h1 {
 
 @media (max-width: 480px) {
     .logo {
-        height: 50px;
+        height: 30px;
     }
     section {
         width: 320px;
@@ -157,7 +140,7 @@ h1 {
         font-size: 16px;
     }
     .info {
-        font-size: 18px;
+        font-size: 20px;
     }
     .butt {
         padding: 3px;
@@ -167,6 +150,7 @@ h1 {
 </style>
 <header class="header__logo">
     <img class="logo" src="https://stknet.ru/img/logo.png" alt="СТК"/>
+    <img class="logo" src="https://netorn.ru/imgs/logo.png" alt="СТК"/>
 </header>
 
 <section>
@@ -176,9 +160,13 @@ h1 {
 
     <p class="txt">Ожидайте перехода на страницу оплаты, если этого не произошло нажмите продолжить!</p>
 
-    <div class="info">
-        <p id="dog"><b>№ договора:</b> 12345678</p>
-        <p id="price"><b>Сумма:</b> 1000 руб.</p>
+    <div class="info dog">
+        <p id="subdog">Договор</p>
+        <p id="dog">0000001</p>
+    </div>
+    <div class="info price">
+        <p id="subprice">Сумма</p>
+        <p id="price">1000 ₽</p>
     </div>
 
     <div class="butt">
